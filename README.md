@@ -4,7 +4,7 @@ A comprehensive, multi-agent stress test battery for [Nool](https://nool.dev) â€
 
 ## Test Results Summary
 
-All 4 scenarios executed against Nool v3.10+ on 2026-07-12:
+All 4 scenarios executed against Nool v6.0.3+ on 2026-07-12:
 
 | Scenario | Result | Duration | Key Metric |
 |----------|--------|----------|------------|
