@@ -125,6 +125,7 @@ nool-enterprise-test/
 
 **Overall: 93.75%**
 
-## Team
+## Contact
 
-Built by [Arun Balakrishnan](https://github.com/arunbalakrishnan) for AI-native engineering teams evaluating Nool at scale.
+Built by the Nool team for AI-native engineering teams evaluating Nool at scale.  
+Get in touch: [https://nool.dev/contact](https://nool.dev/contact)
