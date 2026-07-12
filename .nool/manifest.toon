@@ -1,4 +1,4 @@
-intent: update TLS certificate path
-knot_id: e4e4357eb77e86b5acf7a5c2d3fef7b636ddeca3e7cfbf29657e9e4d65884b31
-solidified_at: 1783883018084
-thread: governance-stress
+intent: fleet: add auth middleware in Python
+knot_id: 62ee2149154f5d62db654d0e81534113b1e3636f8d882617dbfea29e0b30e3fc
+solidified_at: 1783883018492
+thread: fleet-ops
