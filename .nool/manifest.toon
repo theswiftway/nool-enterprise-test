@@ -1,4 +1,4 @@
-intent: identity: configure Keycloak provider
-knot_id: 14793ba7d94b64a352e999895c532646c0061c0b91b16fc72c0edfb3e7e4cfcc
-solidified_at: 1783882924606
-thread: workspace-identity
+intent: update auth security config
+knot_id: 90f4ba92da49d0af9c88c68b3c3aa9440a72fa850aa8aa427baed34ee4d18ce1
+solidified_at: 1783882937145
+thread: governance-stress
