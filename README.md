@@ -79,6 +79,25 @@ Validates fractal workspace coordination across 4 child projects:
 - `nool solidify` per thread
 - `nool workspace pull` — aggregation
 
+## Enterprise Validation Suite (`scenarios-enterprise/`)
+
+Five adversarial stress tests designed for CTO-level board review. Each produces structured JSON results with explicit PASS/FAIL thresholds.
+
+| # | Test | What It Proves | Threshold |
+|---|------|---------------|-----------|
+| 01 | `01_load_generation.sh` | 100K knot DAG replay completes in under 10s | Replay time < 30s at 10K knots |
+| 02 | `02_adversarial_recovery.sh` | Full DAG reconstruction after catastrophic .nool/ deletion | Recovery fidelity = 100% |
+| 03 | `03_convergence_torture.sh` | N agents (configurable, default 10) racing on overlapping NodeIDs produce identical DAG head across 3 rounds | Deterministic across runs |
+| 04 | `04_signature_audit.sh` | Every knot's Ed25519 signature verifies, DAG is linear, mirror commits match knot count | 0 signature failures, 1 DAG head |
+| 05 | `05_long_running_stability.sh` | 300 knots in batch operations simulates 24h of continuous agent activity | 0 invariant violations, bounded ledger growth |
+
+```bash
+# Run the enterprise suite (independent of the CLI smoke tests)
+./scenarios-enterprise/run_enterprise.sh
+```
+
+Results are written to `artifacts-enterprise/` as structured JSON files.
+
 ## Architecture
 
 ```
