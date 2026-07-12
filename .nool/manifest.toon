@@ -1,4 +1,4 @@
-intent: core-service: refactor API handler
-knot_id: 4e5c2db147e636aa521fc724aeb1d0d62ddd3617a0e11393b655bd4f8ae9fe3e
-solidified_at: 1783883019504
-thread: workspace-core
+intent: identity: configure Keycloak provider
+knot_id: 3f8b76f9254f021ce26fd1ecbef30ccd06700eaf01a4356229c273df948ffa95
+solidified_at: 1783883019603
+thread: workspace-identity
