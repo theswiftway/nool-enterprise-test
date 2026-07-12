@@ -1,4 +1,4 @@
-intent: auth-gateway: configure OIDC provider
-knot_id: fd66ada8c01a035178c905c7e6bc708b0f32cd7bb84307d74efba69846513d6b
-solidified_at: 1783882924428
-thread: workspace-auth
+intent: core-service: refactor API handler
+knot_id: 8fd00549d2655279e26d0f01a0c1e5995ee1c0a2fa68b29dd57b2242dd8aa7f1
+solidified_at: 1783882924517
+thread: workspace-core
