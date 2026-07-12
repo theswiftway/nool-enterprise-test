@@ -1,4 +1,4 @@
-intent: agent-alpha: implement rate limiter
-knot_id: 7134d4a2af41963e1a80b9d019efd2dbf3ed1d59f284b1191e8cdd1f5ebda668
-solidified_at: 1783882915103
-thread: thunderdome
+intent: update production secrets
+knot_id: b3c6067bb35e6e2c6d23815c355c9561351f2e5f693927013d04997767aed189
+solidified_at: 1783882919404
+thread: governance-stress
