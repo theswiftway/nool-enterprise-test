@@ -92,9 +92,9 @@ run_round() {
 
     # ----- Phase 2: Race proposals -----
     step "Round ${round}: Phase 2 — ${AGENTS} Racing Agents"
-    local categories=(auth middleware db)
-    local prefixes=(AuthCtrl MiddlewareLogic DbAccess)
-    local pids=()
+    categories=(auth middleware db)
+    prefixes=(AuthCtrl MiddlewareLogic DbAccess)
+    pids=()
     for i in $(seq 1 "${AGENTS}"); do
         (
             ci=$(( (i - 1) % 3 ))
@@ -103,9 +103,9 @@ run_round() {
             fname="${cat}/agent_${i}_${RANDOM}.rs"
             mkdir -p "${wd}/${cat}"
             printf "pub fn agent_%d() -> &'static str { \"%s_%d\" }\n" "$i" "$pre" "$i" > "${wd}/${fname}"
-            nool propose --fast --kind feature \
+            nool propose --fast \
                 --intent "${pre}: Agent ${i} contention proposal" \
-                --paths "${fname}" \
+                --path "${fname}" \
                 2>/dev/null
         ) &
         pids+=($!)
@@ -215,7 +215,7 @@ step "Saving results to ${RESULTS_FILE}"
         "${TIMESTAMP}" "${AGENTS}" "$((AGENTS * ROUNDS))" \
         "${deterministic}" "${ALL_HEADS[0]:-null}"
 
-    local sep=""
+    sep=""
     for r in "${RESULTS[@]}"; do
         printf '%s%s' "$sep" "$r"
         sep=","

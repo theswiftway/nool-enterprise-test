@@ -463,54 +463,68 @@ GIT_VERSION=$(git --version 2>/dev/null || echo "unknown")
 NOOL_VERSION=$(nool version 2>/dev/null | head -1 || echo "unknown")
 HOSTNAME=$(hostname 2>/dev/null || echo "unknown")
 
-python3 -c "
-import json, datetime
+export TIMESTAMP HOSTNAME NOOL_VERSION GIT_VERSION NUM_KNOTS BRANCH TEST_BED
+export PRE_KNUM PRE_DAG_HEADS GIT_COMMITS_BEFORE
+export RECOVERY_METHOD RECOVERY_SUCCESS
+export POST_KNUM POST_DAG_HEADS
+export RECOVERY_FIDELITY_PCT VERIFY_PASSED SIGNATURES_VALID_COUNT SIGNATURES_CHECKED
+export DAG_HEADS_MATCH CORRUPTION_DETECTED
+export PASS FAIL TOTAL_TESTS OVERALL_STATUS RESULTS_FILE
+
+python3 << 'PYEOF'
+import json, datetime, os
 
 results = {
-    'test_name': '02_adversarial_recovery',
-    'timestamp': '$TIMESTAMP',
-    'hostname': '$HOSTNAME',
-    'nool_version': '$NOOL_VERSION',
-    'git_version': '$GIT_VERSION',
+    "test_name": "02_adversarial_recovery",
+    "timestamp": os.environ.get("TIMESTAMP", ""),
+    "hostname": os.environ.get("HOSTNAME", ""),
+    "nool_version": os.environ.get("NOOL_VERSION", ""),
+    "git_version": os.environ.get("GIT_VERSION", ""),
 
-    'configuration': {
-        'num_knots_target': $NUM_KNOTS,
-        'branch': '$BRANCH',
-        'test_bed': '$TEST_BED',
+    "configuration": {
+        "num_knots_target": int(os.environ.get("NUM_KNOTS", 0)),
+        "branch": os.environ.get("BRANCH", ""),
+        "test_bed": os.environ.get("TEST_BED", ""),
     },
 
-    'pre_loss_state': {
-        'original_knot_count': $PRE_KNUM,
-        'dag_heads': $PRE_DAG_HEADS,
-        'git_commits': $GIT_COMMITS_BEFORE,
+    "pre_loss_state": {
+        "original_knot_count": int(os.environ.get("PRE_KNUM", 0)),
+        "dag_heads": os.environ.get("PRE_DAG_HEADS", "[]"),
+        "git_commits": int(os.environ.get("GIT_COMMITS_BEFORE", 0)),
     },
 
-    'recovery': {
-        'method': '$RECOVERY_METHOD',
-        'success': '$RECOVERY_SUCCESS',
+    "recovery": {
+        "method": os.environ.get("RECOVERY_METHOD", ""),
+        "success": os.environ.get("RECOVERY_SUCCESS", "") == "true",
     },
 
-    'post_recovery_state': {
-        'recovered_knot_count': $POST_KNUM,
-        'recovered_dag_heads': $POST_DAG_HEADS,
+    "post_recovery_state": {
+        "recovered_knot_count": int(os.environ.get("POST_KNUM", 0)),
+        "recovered_dag_heads": os.environ.get("POST_DAG_HEADS", "[]"),
     },
 
-    'verification': {
-        'recovery_fidelity_pct': $RECOVERY_FIDELITY_PCT,
-        'verify_passed': $VERIFY_PASSED,
-        'signatures_valid_count': $SIGNATURES_VALID_COUNT,
-        'signatures_checked': $SIGNATURES_CHECKED,
-        'dag_heads_match': $DAG_HEADS_MATCH,
-        'corruption_detected': $CORRUPTION_DETECTED,
+    "verification": {
+        "recovery_fidelity_pct": float(os.environ.get("RECOVERY_FIDELITY_PCT", 0)),
+        "verify_passed": os.environ.get("VERIFY_PASSED", "") == "true",
+        "signatures_valid_count": int(os.environ.get("SIGNATURES_VALID_COUNT", 0)),
+        "signatures_checked": int(os.environ.get("SIGNATURES_CHECKED", 0)),
+        "dag_heads_match": os.environ.get("DAG_HEADS_MATCH", "") == "true",
+        "corruption_detected": os.environ.get("CORRUPTION_DETECTED", "") == "true",
     },
 
-    'test_results': {
-        'passed': $PASS,
-        'failed': $FAIL,
-        'total': $TOTAL_TESTS,
-        'overall_status': '$OVERALL_STATUS',
+    "test_results": {
+        "passed": int(os.environ.get("PASS", 0)),
+        "failed": int(os.environ.get("FAIL", 0)),
+        "total": int(os.environ.get("TOTAL_TESTS", 0)),
+        "overall_status": os.environ.get("OVERALL_STATUS", ""),
     },
 }
+
+results_file = os.environ.get("RESULTS_FILE", "/tmp/nool-enterprise-test/artifacts-enterprise/02_recovery_fallback.json")
+with open(results_file, "w") as f:
+    json.dump(results, f, indent=2)
+print(json.dumps(results, indent=2))
+PYEOF
 
 with open('$RESULTS_FILE', 'w') as f:
     json.dump(results, f, indent=2)

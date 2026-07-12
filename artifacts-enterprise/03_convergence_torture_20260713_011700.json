@@ -1,0 +1,478 @@
+{"test":"03_convergence_torture","timestamp":"20260713_011700","agents_count":5,"total_proposals":15,"total_solidifies":null,"dag_heads_count":null,"verify_passed":null,"deterministic_across_runs":true,"head_knot_id":"unknown","rounds_data":[
+Initialized empty Nool repository in /private/tmp/nool-enterprise-test/work/run_1
+  [tip] .gitignore/.noolignore were updated with Nool's generated-path patterns.
+        Review them: other than the files Nool needs to run (nool.toml,
+        .nool/knot.bin, .nool/manifest.toon) and whatever your team needs
+        pushed to the remote, every other file Nool generates should stay
+        inside .nool/ and remain properly ignored.
+✓ Free local repo allowance initialized for arunbalakrishnan89@gmail.com: first 2,000 Knots are free (~2,000 commits/project).
+  Nool runs entirely locally; sync and Hub features are opt-in.
+  Subscribe anytime at https://nool.dev/pricing for team/cloud features.
+  [Bridge] Initialized Git Mirror at .nool/git_mirror/
+  [Bridge] Registered Nool merge drivers in .gitattributes
+
+✓ Announced intent: Contention: Agent 1 on middleware/*
+  Announcement ID: dd37115e
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 0 on auth/*
+  Announcement ID: 868ce246
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 3 on auth/* + middleware/*
+  Announcement ID: c1f197be
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 4 on db/* + middleware/*
+  Announcement ID: 09d41429
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 2 on db/*
+  Announcement ID: 80b66bf7
+  Touching nodes: 
+
+No target nodes given and you have no active announcements to check.
+
+Usage: nool discover conflicts <NODE_ID>...
+  e.g. nool discover conflicts entity:is_allowed src/auth.ts
+Tip: run 'nool announce intent --intent "..." --target-nodes <ids>' first, then re-run this to check your announced work.
+
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "middleware/agent_2_16802.rs"
+  [IO] Reading from working directory: "auth/agent_4_1781.rs"
+  [IO] Reading from working directory: "db/agent_3_17711.rs"
+  [IO] Reading from working directory: "auth/agent_1_32732.rs"
+  [IO] Reading from working directory: "middleware/agent_5_19528.rs"
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  ✅ Syntax OK (precheck)    middleware/agent_2_16802.rs
+  ✅ Syntax OK (precheck)    auth/agent_4_1781.rs
+  ✅ Syntax OK (precheck)    auth/agent_1_32732.rs
+  ✅ Syntax OK (precheck)    middleware/agent_5_19528.rs
+  ✅ Syntax OK (precheck)    db/agent_3_17711.rs
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+
+4. SIMULATING [●●●]  Merge simulation...
+
+4. SIMULATING [●●●]  Merge simulation...
+
+4. SIMULATING [●●●]  Merge simulation...
+
+4. SIMULATING [●●●]  Merge simulation...
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_1/auth/agent_4_1781.rs"
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : fe5393e6
+  Intent  : AuthCtrl: Agent 4 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_1/middleware/agent_5_19528.rs"
+   Relevant prior findings: none
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_1/db/agent_3_17711.rs"
+   Relevant prior findings: none
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_1/auth/agent_1_32732.rs"
+   Relevant prior findings: none
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_1/middleware/agent_2_16802.rs"
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : 49a428b5
+  Intent  : DbAccess: Agent 3 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : ee0cee57
+  Intent  : MiddlewareLogic: Agent 5 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+
+────────────────────────────────────────────────────────────
+  ID      : 2930748d
+PROPOSAL SUMMARY
+  Intent  : MiddlewareLogic: Agent 2 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+  ID      : 20b0cc2f
+  Intent  : AuthCtrl: Agent 1 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+
+1. SEALING    [●●○]  Signing Knot [STAGED (DAG + Git)]...
+  ℹ 3 candidates are pending — this seals the OLDEST first (FIFO), not necessarily the one just staged. 2 still queued afterward; run `nool solidify` again for each, or `nool propose --abort` to drop a pending candidate.
+
+🔍 Verifying structural invariants for entire active snapshot...
+  ✓ All 4 controls satisfied.
+Verification summary: 4 controls evaluated, 0 violations.
+No Knots in ledger.
+{"round":1,"agents":5,"proposals":5,"solidifies":0,"dag_heads_count":0,"verify_passed":true,"head_knot_id":"unknown"},
+Initialized empty Nool repository in /private/tmp/nool-enterprise-test/work/run_2
+  [tip] .gitignore/.noolignore were updated with Nool's generated-path patterns.
+        Review them: other than the files Nool needs to run (nool.toml,
+        .nool/knot.bin, .nool/manifest.toon) and whatever your team needs
+        pushed to the remote, every other file Nool generates should stay
+        inside .nool/ and remain properly ignored.
+✓ Free local repo allowance initialized for arunbalakrishnan89@gmail.com: first 2,000 Knots are free (~2,000 commits/project).
+  Nool runs entirely locally; sync and Hub features are opt-in.
+  Subscribe anytime at https://nool.dev/pricing for team/cloud features.
+  [Bridge] Initialized Git Mirror at .nool/git_mirror/
+  [Bridge] Registered Nool merge drivers in .gitattributes
+
+✓ Announced intent: Contention: Agent 3 on auth/* + middleware/*
+  Announcement ID: d1c3e090
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 4 on db/* + middleware/*
+  Announcement ID: 3e874aed
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 1 on middleware/*
+  Announcement ID: b46f02ec
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 0 on auth/*
+  Announcement ID: 8f1e2525
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 2 on db/*
+  Announcement ID: 087abece
+  Touching nodes: 
+
+No target nodes given and you have no active announcements to check.
+
+Usage: nool discover conflicts <NODE_ID>...
+  e.g. nool discover conflicts entity:is_allowed src/auth.ts
+Tip: run 'nool announce intent --intent "..." --target-nodes <ids>' first, then re-run this to check your announced work.
+
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "middleware/agent_2_31186.rs"
+  [IO] Reading from working directory: "auth/agent_1_14348.rs"
+  [IO] Reading from working directory: "middleware/agent_5_1144.rs"
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  [IO] Reading from working directory: "db/agent_3_32095.rs"
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  [IO] Reading from working directory: "auth/agent_4_235.rs"
+  ✅ Syntax OK (precheck)    auth/agent_1_14348.rs
+  ✅ Syntax OK (precheck)    middleware/agent_2_31186.rs
+  ✅ Syntax OK (precheck)    middleware/agent_5_1144.rs
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  ✅ Syntax OK (precheck)    db/agent_3_32095.rs
+  ✅ Syntax OK (precheck)    auth/agent_4_235.rs
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+
+4. SIMULATING [●●●]  Merge simulation...
+
+4. SIMULATING [●●●]  Merge simulation...
+
+4. SIMULATING [●●●]  Merge simulation...
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+
+4. SIMULATING [●●●]  Merge simulation...
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_2/middleware/agent_2_31186.rs"
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : 18687578
+  Intent  : MiddlewareLogic: Agent 2 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_2/middleware/agent_5_1144.rs"
+   Relevant prior findings: none
+
+🔭 Semantic signal
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_2/auth/agent_1_14348.rs"
+     · "/private/tmp/nool-enterprise-test/work/run_2/auth/agent_4_235.rs"
+   Relevant prior findings: none
+   Relevant prior findings: none
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_2/db/agent_3_32095.rs"
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : 231fe9df
+  Intent  : MiddlewareLogic: Agent 5 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : 9782b100
+  Intent  : AuthCtrl: Agent 4 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : beeb67d7
+
+────────────────────────────────────────────────────────────
+  Intent  : AuthCtrl: Agent 1 contention proposal
+PROPOSAL SUMMARY
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+  ID      : 53de2882
+  Intent  : DbAccess: Agent 3 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+
+1. SEALING    [●●○]  Signing Knot [STAGED (DAG + Git)]...
+  ℹ 2 candidates are pending — this seals the OLDEST first (FIFO), not necessarily the one just staged. 1 still queued afterward; run `nool solidify` again for each, or `nool propose --abort` to drop a pending candidate.
+
+🔍 Verifying structural invariants for entire active snapshot...
+  ✓ All 4 controls satisfied.
+Verification summary: 4 controls evaluated, 0 violations.
+No Knots in ledger.
+{"round":2,"agents":5,"proposals":5,"solidifies":0,"dag_heads_count":0,"verify_passed":true,"head_knot_id":"unknown"},
+Initialized empty Nool repository in /private/tmp/nool-enterprise-test/work/run_3
+  [tip] .gitignore/.noolignore were updated with Nool's generated-path patterns.
+        Review them: other than the files Nool needs to run (nool.toml,
+        .nool/knot.bin, .nool/manifest.toon) and whatever your team needs
+        pushed to the remote, every other file Nool generates should stay
+        inside .nool/ and remain properly ignored.
+✓ Free local repo allowance initialized for arunbalakrishnan89@gmail.com: first 2,000 Knots are free (~2,000 commits/project).
+  Nool runs entirely locally; sync and Hub features are opt-in.
+  Subscribe anytime at https://nool.dev/pricing for team/cloud features.
+  [Bridge] Initialized Git Mirror at .nool/git_mirror/
+  [Bridge] Registered Nool merge drivers in .gitattributes
+
+✓ Announced intent: Contention: Agent 1 on middleware/*
+  Announcement ID: 17412139
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 4 on db/* + middleware/*
+  Announcement ID: 94171e89
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 0 on auth/*
+  Announcement ID: a2f6def8
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 2 on db/*
+  Announcement ID: 655c47af
+  Touching nodes: 
+✓ Announced intent: Contention: Agent 3 on auth/* + middleware/*
+  Announcement ID: 9a2e5d65
+  Touching nodes: 
+
+No target nodes given and you have no active announcements to check.
+
+Usage: nool discover conflicts <NODE_ID>...
+  e.g. nool discover conflicts entity:is_allowed src/auth.ts
+Tip: run 'nool announce intent --intent "..." --target-nodes <ids>' first, then re-run this to check your announced work.
+
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "auth/agent_4_29215.rs"
+  [IO] Reading from working directory: "middleware/agent_5_30123.rs"
+  [IO] Reading from working directory: "db/agent_3_11468.rs"
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  [IO] Reading from working directory: "middleware/agent_2_10559.rs"
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  ✅ Syntax OK (precheck)    auth/agent_4_29215.rs
+  [IO] Reading from working directory: "auth/agent_1_26489.rs"
+  ✅ Syntax OK (precheck)    db/agent_3_11468.rs
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  ✅ Syntax OK (precheck)    middleware/agent_2_10559.rs
+  ✅ Syntax OK (precheck)    middleware/agent_5_30123.rs
+  ✅ Syntax OK (precheck)    auth/agent_1_26489.rs
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+
+4. SIMULATING [●●●]  Merge simulation...
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+
+4. SIMULATING [●●●]  Merge simulation...
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+
+4. SIMULATING [●●●]  Merge simulation...
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+
+4. SIMULATING [●●●]  Merge simulation...
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_3/auth/agent_4_29215.rs"
+   Relevant prior findings: none
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_3/db/agent_3_11468.rs"
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : fbea3123
+  Intent  : AuthCtrl: Agent 4 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : c259f256
+  Intent  : DbAccess: Agent 3 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_3/middleware/agent_5_30123.rs"
+   Relevant prior findings: none
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_3/middleware/agent_2_10559.rs"
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : 5b810766
+  Intent  : MiddlewareLogic: Agent 2 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+  ID      : 0d577131
+  Intent  : MiddlewareLogic: Agent 5 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/work/run_3/auth/agent_1_26489.rs"
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : 7a18385e
+  Intent  : AuthCtrl: Agent 1 contention proposal
+  Thread  : main
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+
+1. SEALING    [●●○]  Signing Knot [STAGED (DAG + Git)]...
+  ℹ 3 candidates are pending — this seals the OLDEST first (FIFO), not necessarily the one just staged. 2 still queued afterward; run `nool solidify` again for each, or `nool propose --abort` to drop a pending candidate.
+
+🔍 Verifying structural invariants for entire active snapshot...
+  ✓ All 4 controls satisfied.
+Verification summary: 4 controls evaluated, 0 violations.
+No Knots in ledger.
+{"round":3,"agents":5,"proposals":5,"solidifies":0,"dag_heads_count":0,"verify_passed":true,"head_knot_id":"unknown"}]}

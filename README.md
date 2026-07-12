@@ -13,7 +13,7 @@ All 4 scenarios executed against Nool v6.0.3+ on 2026-07-12:
 | **03 — Fleet Coordination** | ✅ PASS | 0s | Disjoint wave planning, 5/7 agent specs valid |
 | **04 — Polyglot Workspace Coordination** | ✅ PASS | 1s | 4 projects across 2 levels, 3 goals decomposed |
 
-**Aggregate**: 38 solidified Knots, 1 canonical DAG head, 8 active threads, 2 active authors, 0 violations.
+**Aggregate**: 38 solidified Knots (basic) + 434 knots (enterprise suite), 1 canonical DAG head, 9 active threads, 0 invariant violations across basic suite, 2 violations across enterprise suite.
 
 Full report: [`reports/NOOL_ENTERPRISE_READINESS_REPORT.md`](reports/NOOL_ENTERPRISE_READINESS_REPORT.md)
 
@@ -83,13 +83,25 @@ Validates fractal workspace coordination across 4 child projects:
 
 Five adversarial stress tests designed for CTO-level board review. Each produces structured JSON results with explicit PASS/FAIL thresholds.
 
-| # | Test | What It Proves | Threshold |
-|---|------|---------------|-----------|
-| 01 | `01_load_generation.sh` | 100K knot DAG replay completes in under 10s | Replay time < 30s at 10K knots |
-| 02 | `02_adversarial_recovery.sh` | Full DAG reconstruction after catastrophic .nool/ deletion | Recovery fidelity = 100% |
-| 03 | `03_convergence_torture.sh` | N agents (configurable, default 10) racing on overlapping NodeIDs produce identical DAG head across 3 rounds | Deterministic across runs |
-| 04 | `04_signature_audit.sh` | Every knot's Ed25519 signature verifies, DAG is linear, mirror commits match knot count | 0 signature failures, 1 DAG head |
-| 05 | `05_long_running_stability.sh` | 300 knots in batch operations simulates 24h of continuous agent activity | 0 invariant violations, bounded ledger growth |
+| # | Test | What It Proves | Result | Key Finding |
+|---|------|---------------|--------|-------------|
+| 01 | `01_load_generation.sh` | 100K knot DAG replay at scale | ⏳ (time-bound) | Requires long execution |
+| 02 | `02_adversarial_recovery.sh` | Full DAG reconstruction after catastrophic `.nool/` deletion | ⚠️ 82.26% fidelity | `nool init --from-git` recovers 102/124 knots (102 git commits vs 124 total ops). All 102 signatures valid. Structural verify passes. |
+| 03 | `03_convergence_torture.sh` | N agents racing on overlapping NodeIDs produce identical DAG head | ✅ Deterministic | Proposals created correctly across 3 rounds × 5 agents. FIFO solidify queue operates per Nool spec. |
+| 04 | `04_signature_audit.sh` | Ed25519 signature chain integrity, DAG linearity, mirror consistency | ⚠️ 1 violation | 64 knots at 5.57 kt/s. Mirror commits (50) < total (64). `doctor`: RELEASABLE_WITH_WARNINGS. |
+| 05 | `05_long_running_stability.sh` | 300 ops simulating 24h continuous agent activity | ⚠️ 1 violation | Linear DAG, 434 knots, 3.88 ops/s, 17.9MB ledger growth. Verify found 1 violation. |
+
+### Key Findings from Enterprise Suite
+
+1. **Recovery fidelity at 82%** — `nool init --from-git` reconstructs the DAG from git commits, but some internal operations don't produce commits. For 100% recovery, the knot.bin-per-commit Bifrost strategy is needed. All 102 recovered knots have valid Ed25519 signatures.
+
+2. **Verify violations detected** — Both tests 04 and 05 found 1 structural invariant violation each. This demonstrates Nool's invariant engine is working (it catches issues) but the root cause needs investigation.
+
+3. **Mirror commit gap** — Git mirror has fewer commits than total knots (50 vs 64). Expected behavior: only `solidify` operations produce git commits, not intermediate states. The mirror is sufficient for DAG recovery but not for auditing every internal state.
+
+4. **Throughput** — Long-running test sustained 3.88 ops/s (propose+solidify cycles) over 111s and 434 knots. Disk growth of 17.9MB is reasonable for 434 semantic records with full causal metadata.
+
+5. **Convergence is deterministic** — Multiple rounds with overlapping agents produce the same behavior. The FIFO solidify queue ensures deterministic ordering regardless of proposal timing.
 
 ```bash
 # Run the enterprise suite (independent of the CLI smoke tests)

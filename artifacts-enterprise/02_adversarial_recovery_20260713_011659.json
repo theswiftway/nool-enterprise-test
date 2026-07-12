@@ -1,0 +1,39 @@
+{
+  "test_name": "02_adversarial_recovery",
+  "timestamp": "20260713_011659",
+  "hostname": "Mac",
+  "nool_version": "Nool CLI v6.0.3",
+  "git_version": "git version 2.50.1 (Apple Git-155)",
+  "configuration": {
+    "num_knots_target": 100,
+    "branch": "main",
+    "test_bed": "/tmp/nool-enterprise-test/test_bed_41022"
+  },
+  "pre_loss_state": {
+    "original_knot_count": 124,
+    "dag_heads": "[\"1632bbfd0bc26a0e026910003bfb83068d282e88f50c3b260891189bfdbdb18a\"]",
+    "git_commits": 102
+  },
+  "recovery": {
+    "method": "init --from-git",
+    "success": true
+  },
+  "post_recovery_state": {
+    "recovered_knot_count": 102,
+    "recovered_dag_heads": "[\"4e3d150eb28e4ccdf7df94b2d8e3414d5517510603590077c874753403e15770\"]"
+  },
+  "verification": {
+    "recovery_fidelity_pct": 82.26,
+    "verify_passed": true,
+    "signatures_valid_count": 102,
+    "signatures_checked": 102,
+    "dag_heads_match": false,
+    "corruption_detected": false
+  },
+  "test_results": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "overall_status": "FAIL"
+  }
+}

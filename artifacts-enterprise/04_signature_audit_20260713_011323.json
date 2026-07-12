@@ -1,0 +1,18 @@
+{
+  "timestamp": "20260713_011323",
+  "total_knots": 64,
+  "dag_heads": 1,
+  "invalid_knot_ids": 0,
+  "log_knot_count": 64,
+  "status_knot_count": 64,
+  "knot_count_consistent": true,
+  "verify_violations": 1,
+  "verify_time_ms": 22,
+  "mirror_commits": 50,
+  "mirror_sufficient": false,
+  "knots_per_second": 5.57,
+  "total_duration_s": 8.969,
+  "doctor_verdict": "RELEASABLE_WITH_WARNINGS",
+  "audit_passed": false,
+  "test_bed": "/tmp/nool-enterprise-test/bed_04_3747"
+}
