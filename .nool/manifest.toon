@@ -1,4 +1,4 @@
-intent: update auth security config
-knot_id: 90f4ba92da49d0af9c88c68b3c3aa9440a72fa850aa8aa427baed34ee4d18ce1
-solidified_at: 1783882937145
-thread: governance-stress
+intent: agent-beta: add auth middleware
+knot_id: 60ccaec5b0db4509a0c515d4b28921c9a9ed2b9a300fced2b1f1245270e26cf2
+solidified_at: 1783883017365
+thread: thunderdome
