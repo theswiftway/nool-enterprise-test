@@ -1,4 +1,4 @@
-intent: update production secrets
-knot_id: b3c6067bb35e6e2c6d23815c355c9561351f2e5f693927013d04997767aed189
-solidified_at: 1783882919404
-thread: governance-stress
+intent: fleet: implement rate limiter in Python
+knot_id: 0186aaf299588188ceb5c7af82bb7f616d79daf213acc8045723c9a472c6998e
+solidified_at: 1783882923569
+thread: fleet-ops
