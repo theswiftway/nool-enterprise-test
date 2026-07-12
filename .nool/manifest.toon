@@ -1,4 +1,4 @@
-intent: fleet: add auth middleware in Python
-knot_id: 62ee2149154f5d62db654d0e81534113b1e3636f8d882617dbfea29e0b30e3fc
-solidified_at: 1783883018492
-thread: fleet-ops
+intent: analytics: add usage dashboard query
+knot_id: 388ddefa775a184e3be0a40887ee2bf0eba2870d7a4f8263c629e2c6d7418246
+solidified_at: 1783883019312
+thread: workspace-analytics
