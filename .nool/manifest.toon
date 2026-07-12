@@ -1,4 +1,4 @@
-intent: analytics: add usage dashboard query
-knot_id: 388ddefa775a184e3be0a40887ee2bf0eba2870d7a4f8263c629e2c6d7418246
-solidified_at: 1783883019312
-thread: workspace-analytics
+intent: auth-gateway: configure OIDC provider
+knot_id: 3dd7516e972f7c23615cd78f75c954b9bb984a4d673fea3b0e05fbe49ca5499a
+solidified_at: 1783883019405
+thread: workspace-auth
