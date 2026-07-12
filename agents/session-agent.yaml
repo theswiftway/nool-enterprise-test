@@ -1,0 +1,27 @@
+name: session-agent
+description: "Backend engineer rewriting session handling from cookie-based to encrypted JWT with distributed cache store and server-side revocation."
+executor:
+  harness: claude-sdk
+  model: sonnet
+  auth: env:ANTHROPIC_API_KEY
+soul: back
+tools:
+  - nool.query
+  - nool.propose
+  - nool.announce
+  - fs.read
+  - fs.write
+  - shell.exec
+budget:
+  per_run_usd: 1.50
+  max_turns: 45
+  compaction_window: 240000
+policy:
+  blast_radius_max: 25
+  on_overlap: lease
+  trust_tier: 2
+  role: developer
+retry:
+  max_retries: 3
+  backoff_base_ms: 750
+  jitter: true

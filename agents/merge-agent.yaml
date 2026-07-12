@@ -1,0 +1,28 @@
+name: merge-agent
+description: "Tech lead merging the refactored auth middleware with the user service, resolving conflicts across OAuth, rate-limit, session, and logging interfaces."
+executor:
+  harness: claude-sdk
+  model: sonnet
+  auth: env:ANTHROPIC_API_KEY
+soul: lead
+tools:
+  - nool.query
+  - nool.propose
+  - nool.announce
+  - nool.verify
+  - fs.read
+  - fs.write
+  - shell.exec
+budget:
+  per_run_usd: 3.00
+  max_turns: 80
+  compaction_window: 360000
+policy:
+  blast_radius_max: 50
+  on_overlap: error
+  trust_tier: 4
+  role: architect
+retry:
+  max_retries: 5
+  backoff_base_ms: 2000
+  jitter: true

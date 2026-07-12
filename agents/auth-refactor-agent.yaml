@@ -1,0 +1,27 @@
+name: auth-refactor-agent
+description: "Senior architect agent that refactors auth middleware to OAuth2.0 with PKCE flow, token exchange, and refresh token rotation."
+executor:
+  harness: claude-sdk
+  model: sonnet
+  auth: env:ANTHROPIC_API_KEY
+soul: arch
+tools:
+  - nool.query
+  - nool.propose
+  - nool.announce
+  - nool.verify
+  - fs.read
+  - fs.write
+budget:
+  per_run_usd: 2.50
+  max_turns: 60
+  compaction_window: 300000
+policy:
+  blast_radius_max: 30
+  on_overlap: lease
+  trust_tier: 3
+  role: architect
+retry:
+  max_retries: 3
+  backoff_base_ms: 1000
+  jitter: true

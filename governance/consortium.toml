@@ -1,0 +1,9 @@
+[consortium.enterprise-review]
+quorum = 3
+veto = 2
+members = [
+  { role = "architect",  model = "host" },
+  { role = "ciso",       model = "host" },
+  { role = "tech-lead",  model = "host" },
+]
+review_threshold = "majority"

@@ -1,0 +1,189 @@
+============================================================
+ SCENARIO 02: Governance Policy Enforcement Stress
+ Started:    2026-07-12T19:03:37Z
+============================================================
+
+[PHASE 1] Displaying current configuration
+
+Nool Configuration
+════════════════════════════════════════
+Global license locations:
+  ✓ /Users/arunbalakrishnan/.nool/config.toml
+  ✓ /Users/arunbalakrishnan/.config/nool/config.toml
+Local config  : nool.toml
+
+Effective Billing:
+────────────────────────────────────────
+  License Key     : eyJlbWFpbCI6ImFydW5iYWxha3Jpc2huYW44OUBnbWFpbC5jb20iLCJwbGFuX25hbWUiOiJzdGFydHVwIiwiZXhwaXJlc19hdCI6MTgxMTk1ODE1Nzg2NCwidiI6MSwia2lkIjoidjEiLCJpc3N1ZWRfYXQiOjE3ODA0MjIxNTc4NjQsImVudGl0bGVtZW50cyI6bnVsbH0=.a102a421be4d71c6ae2ab134d8acb530ec7d61b07772478f917e6abda02e21d01192d72ca24553364ca04791604b62f25e1193271afe52c30ed6f8d706e75803
+  Sync Online     : true
+  Soft Limit %    : 110
+
+Effective Models:
+────────────────────────────────────────
+  Default         : host
+  Host Failure    : Warn
+  Catalog         : (empty)
+
+Effective Lifecycle Bindings:
+────────────────────────────────────────
+  (none; zero-config dispatch guard active)
+
+Effective Souls and Consortia:
+────────────────────────────────────────
+  Souls           : (none)
+  Consortia       : (none)
+
+[PHASE 2] Creating consortium governance definition
+  [✓] Created governance/consortium.toml
+
+[PHASE 3] Creating changes across security-sensitive paths
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "tmp/governance/.env.production"
+  ✅ Syntax OK (precheck)    tmp/governance/.env.production
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/tmp/governance/.env.production"
+   Semantic field: spectral impact 1.4142, heat reaches 1 node(s) — modularity λ₂ 0.0000
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : 1e911002
+  Intent  : update production secrets
+  Thread  : governance-stress
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "tmp/governance/auth_config.toml"
+  ✅ Syntax OK (precheck)    tmp/governance/auth_config.toml
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/tmp/governance/auth_config.toml"
+   Semantic field: spectral impact 0.0000, heat reaches 0 node(s) — modularity λ₂ 0.0000
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : 7e582419
+  Intent  : update auth security config
+  Thread  : governance-stress
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "tmp/governance/tls_config.toml"
+  ✅ Syntax OK (precheck)    tmp/governance/tls_config.toml
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/tmp/governance/tls_config.toml"
+   Semantic field: new node (no structural history yet) — modularity λ₂ 0.0000
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : d0b3b120
+  Intent  : update TLS certificate path
+  Thread  : governance-stress
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "governance/consortium.toml"
+  ✅ Syntax OK (precheck)    governance/consortium.toml
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/governance/consortium.toml"
+   Semantic field: new node (no structural history yet) — modularity λ₂ 0.0000
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : ea4de550
+  Intent  : define enterprise consortium
+  Thread  : governance-stress
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+[PHASE 4] Testing steering gates
+  Steering target: 417b36bbf6917a87a85513d64fd9ccf118fae1d620858257971e3e38de08b1cd
+  Knot intent: agent-beta: add auth middleware
+
+🔒 [Security Challenge] High-risk steering action detected.
+Please answer the challenge question to verify your understanding of the target knot.
+
+Question: Which file is modified or targeted by the approved knot?
+  1) nool.toml
+  2) README.md
+  3) src/main.rs
+  4) Cargo.lock
+
+Your choice (1-4): ✅ Challenge answered correctly. Proceeding with authorization.
+
+✓ Steering intervention recorded: f2eab20d (Point: PreSolidify, Action: "approve")
+
+🔒 [Security Challenge] High-risk steering action detected.
+Please answer the challenge question to verify your understanding of the target knot.
+
+Question: Which role is authorizing this steering action?
+  1) Architect
+  2) Ciso
+  3) Developer
+  4) Product
+
+Your choice (1-4): Error: "Incorrect answer. Steering approval denied."
+[WARN] steer (ciso approve) had non-zero exit
+
+[PHASE 5] Running structural invariant verification
+🔍 Verifying structural invariants for entire active snapshot...
+  ✓ All 4 controls satisfied.
+Verification summary: 4 controls evaluated, 0 violations.
+
+[PHASE 6] Producing compliance audit report
+Nool Audit Report
+══════════════════════════════════════════════════
+  Audit Session   : 2026-07-12T19:03:38.007760+00:00
+  Total Knots     : 28
+  Invariants      : 4
+  Violations      : 0
+  Status          : ✓ PASS
+ROLE-BASED STEERING AUDIT REPORT
+────────────────────────────────────────────────────────────
+Principal    | Role         | Approvals  | Violations | QualityScore
+────────────────────────────────────────────────────────────
+39aa3ee8     | Architect    | 1          | 0          | 100.0%
+────────────────────────────────────────────────────────────
+
+[PHASE 7] Solidifying governance proposals
+
+1. SEALING    [●●○]  Signing Knot [STAGED (DAG + Git)]...
+  ℹ 10 candidates are pending — this seals the OLDEST first (FIFO), not necessarily the one just staged. 9 still queued afterward; run `nool solidify` again for each, or `nool propose --abort` to drop a pending candidate.
+
+2. EXPORTING  [●●●]  Updating Git Mirror...
+✓ Decision Sealed: e4e4357e
+  [Git] ✅ Committed to main (staged for push)
+
+============================================================
+ SCENARIO 02 COMPLETE — duration: 1s
+============================================================

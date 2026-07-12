@@ -1,0 +1,26 @@
+name: logging-agent
+description: "DevOps engineer extracting structured auth logging into composable middleware stack with correlation IDs and sampled audit trails."
+executor:
+  harness: openrouter
+  model: gpt-4o
+  auth: env:OPENROUTER_API_KEY
+soul: ops
+tools:
+  - nool.query
+  - nool.propose
+  - nool.announce
+  - fs.read
+  - fs.write
+budget:
+  per_run_usd: 0.80
+  max_turns: 30
+  compaction_window: 120000
+policy:
+  blast_radius_max: 18
+  on_overlap: lease
+  trust_tier: 1
+  role: developer
+retry:
+  max_retries: 2
+  backoff_base_ms: 400
+  jitter: false

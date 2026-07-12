@@ -1,0 +1,498 @@
+============================================================
+ SCENARIO 01: Multi-Agent Conflict Gauntlet
+ Started:    2026-07-12T19:03:36Z
+============================================================
+
+[PHASE 1] Pre-flight — gathering status and features
+  Total Knots   : 25
+  DAG Heads     : 1
+  Tree Status   : 📝 STAGED (pending proposal)
+  ✓ Linear timeline
+  64e84c94
+
+Replica Configuration
+────────────────────────────────────────
+  No remotes configured.
+  Use 'nool sync <url>' to connect a replica.
+  Git Mirror  : .nool/git_mirror/
+  Auto-sync   : enabled
+
+Licensing & Trial
+────────────────────────────────────────
+  License Status     : ✓ Valid (324 days remaining)
+  Total Knots        : 25 (unlimited)
+  Execution          : runs entirely locally; sync/Hub are opt-in
+
+Features
+────────────────────────────────────────
+  All commands available on any plan (free or paid).
+
+Agent Statistics
+────────────────────────────────────────
+  Active Authors: 2
+    • 16 knots produced
+    • 9 knots produced
+
+Coordination
+────────────────────────────────────────
+  Active Announcements : 22
+  Pending Reviews      : 25
+  Candidate Queue      : 10
+  Spool Backlog        : 0
+  Daemon              : online (spool=0, heads=1, threads=8)
+    • define enterprise consortium [39aa3ee8] nodes=1
+    • update TLS certificate path [39aa3ee8] nodes=1
+    • update auth security config [39aa3ee8] nodes=1
+    • update production secrets [39aa3ee8] nodes=1
+    • identity: configure Keycloak provider [39aa3ee8] nodes=1
+
+Pending Proposals:
+  Intent: fleet: add auth middleware in Python
+  Thread: fleet-ops
+  Payload: Mutation  @ tmp/fleet/auth_middleware.py
+  Candidate: .nool/candidate_15389bf1bb790ddb9c8bde198904b822048daf98720c7c418db14ecb1626e5b4.knot
+  Intent: update TLS certificate path
+  Thread: governance-stress
+  Payload: Mutation  config  @ tmp/governance/tls_config.toml
+  Candidate: .nool/candidate_c1d5773214f296671e02d54f63ca3762c3b3693393b6039c650630e1e4c6d5e3.knot
+  Intent: agent-beta: add auth middleware
+  Thread: thunderdome
+  Payload: Mutation  @ tmp/thunderdome/auth_middleware.rs
+  Candidate: .nool/candidate_cfd5130356745b97d542e1b6b945f6dcf367617642a0584b6a305fecc438f169.knot
+  (Run 'nool diff' to inspect content, or 'nool solidify' to sign)
+
+Active Threads:
+  * main (Current)
+    thunderdome
+    governance-stress
+    fleet-ops
+    workspace-analytics
+    workspace-auth
+    workspace-core
+    workspace-identity
+Discovered Feature Boundaries
+══════════════════════════════════════════════════
+
+Feature: tmp.fleet
+Files: 1 | Entities: 1
+
+Feature: tmp.thunderdome
+Files: 1 | Entities: 0
+
+Feature: workspace.core-service.src
+Files: 1 | Entities: 1
+
+Use --full (or --expand) to show all files and entities.
+
+Tip: Use 'nool plan propose --feature <title>' to solidify a feature.
+
+[PHASE 2] Announcing 3 simulated agent intents
+✓ Announced intent: agent-alpha: implement rate limiter
+  Announcement ID: 6ba19b92
+  Touching nodes: src/rate_limiter
+✓ Announced intent: agent-beta: add auth middleware
+  Announcement ID: cbcc1e21
+  Touching nodes: src/auth
+✓ Announced intent: agent-gamma: refactor database layer
+  Announcement ID: 4767b26c
+  Touching nodes: src/db
+
+[PHASE 3] Starting parallel work
+Error: "`nool work start` needs an empty candidate queue, but 10 pending candidate(s) exist.\nInspect them with `nool status`, then either `nool solidify` to save them or `nool propose --abort` to discard, and re-run `nool work start`."
+[WARN] work start had non-zero exit
+
+[PHASE 4] Detecting conflicts across announcements
+Checking your 16 announced node(s) against other agents...
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: test-proposal
+• Overlapping nodes: test_file.rs
+• Estimated time remaining: 1626736 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: test-proposal-v2
+• Overlapping nodes: test_note.txt
+• Estimated time remaining: 1631182 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: agent-alpha: implement rate limiter
+• Overlapping nodes: tmp/thunderdome/rate_limiter.rs
+• Estimated time remaining: 1698182 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: agent-beta: add auth middleware
+• Overlapping nodes: tmp/thunderdome/auth_middleware.rs
+• Estimated time remaining: 1698273 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: agent-gamma: refactor database layer
+• Overlapping nodes: tmp/thunderdome/db_layer.rs
+• Estimated time remaining: 1698376 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: update production secrets
+• Overlapping nodes: tmp/governance/.env.production
+• Estimated time remaining: 1702368 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: update auth security config
+• Overlapping nodes: tmp/governance/auth_config.toml
+• Estimated time remaining: 1702436 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: update TLS certificate path
+• Overlapping nodes: tmp/governance/tls_config.toml
+• Estimated time remaining: 1702502 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: define enterprise consortium
+• Overlapping nodes: governance/consortium.toml
+• Estimated time remaining: 1702569 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: fleet: implement rate limiter in Python
+• Overlapping nodes: tmp/fleet/rate_limiter.py
+• Estimated time remaining: 1706720 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: fleet: add auth middleware in Python
+• Overlapping nodes: tmp/fleet/auth_middleware.py
+• Estimated time remaining: 1706789 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: fleet: add database query module
+• Overlapping nodes: tmp/fleet/db_query.py
+• Estimated time remaining: 1706859 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: analytics: add usage dashboard query
+• Overlapping nodes: workspace/analytics/dashboards/usage.sql
+• Estimated time remaining: 1707389 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: auth-gateway: configure OIDC provider
+• Overlapping nodes: workspace/auth-gateway/config/oauth.toml
+• Estimated time remaining: 1707461 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: core-service: refactor API handler
+• Overlapping nodes: workspace/core-service/src/handler.rs
+• Estimated time remaining: 1707534 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: identity: configure Keycloak provider
+• Overlapping nodes: workspace/identity/config/provider.toml
+• Estimated time remaining: 1707649 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: update production secrets
+• Overlapping nodes: tmp/governance/.env.production
+• Estimated time remaining: 1720079 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: update auth security config
+• Overlapping nodes: tmp/governance/auth_config.toml
+• Estimated time remaining: 1720156 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: update TLS certificate path
+• Overlapping nodes: tmp/governance/tls_config.toml
+• Estimated time remaining: 1720228 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+⚠️  CONFLICT DETECTED
+Another agent is already working on this:
+• Agent: 39aa3ee8
+• Intent: define enterprise consortium
+• Overlapping nodes: governance/consortium.toml
+• Estimated time remaining: 1720301 ms
+
+Options:
+1. Wait for the other agent to finish
+2. Coordinate with them: nool msg 39aa3ee8
+3. Work on a different set of nodes
+
+
+
+[PHASE 5] Creating isolated changes and proposing
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "tmp/thunderdome/rate_limiter.rs"
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  ✅ Syntax OK (precheck)    tmp/thunderdome/rate_limiter.rs
+Preparing worktree (detached HEAD e0018a0)
+HEAD is now at e0018a0 Nool Knot: 3392a4c1c4fed9819af66a9b89e7331a582e0ba2922bce1fedf9366de9b283a4
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+  [Reify] ⚠️  PATH RESOLUTION FAILURE
+Expected Cargo.toml in:
+• Real root:    /private/tmp/nool-enterprise-test/.
+• Scratchpad:   /private/tmp/nool-enterprise-test/.nool/tmp/reify/.
+Fix options:
+1. Run from your project directory (where Cargo.toml lives).
+2. Use --project-root <path> to specify the project location explicitly.
+3. Ensure cargo is installed: command -v cargo
+4. For a new repo, run 'nool init' from the project root.
+  ⚠️ Fast validation failed: Cannot locate project root for integrity check. Expected Cargo.toml in '/private/tmp/nool-enterprise-test/.'. Use --project-root <path> to specify the project location explicitly.
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/tmp/thunderdome/rate_limiter.rs"
+   Semantic field: spectral impact 1.4142, heat reaches 1 node(s) — modularity λ₂ 0.0000
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : a6712cd7
+  Intent  : agent-alpha: implement rate limiter
+  Thread  : thunderdome
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "tmp/thunderdome/auth_middleware.rs"
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  ✅ Syntax OK (precheck)    tmp/thunderdome/auth_middleware.rs
+Preparing worktree (detached HEAD e0018a0)
+HEAD is now at e0018a0 Nool Knot: 3392a4c1c4fed9819af66a9b89e7331a582e0ba2922bce1fedf9366de9b283a4
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+  [Reify] ⚠️  PATH RESOLUTION FAILURE
+Expected Cargo.toml in:
+• Real root:    /private/tmp/nool-enterprise-test/.
+• Scratchpad:   /private/tmp/nool-enterprise-test/.nool/tmp/reify/.
+Fix options:
+1. Run from your project directory (where Cargo.toml lives).
+2. Use --project-root <path> to specify the project location explicitly.
+3. Ensure cargo is installed: command -v cargo
+4. For a new repo, run 'nool init' from the project root.
+  ⚠️ Fast validation failed: Cannot locate project root for integrity check. Expected Cargo.toml in '/private/tmp/nool-enterprise-test/.'. Use --project-root <path> to specify the project location explicitly.
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/tmp/thunderdome/auth_middleware.rs"
+   Semantic field: new node (no structural history yet) — modularity λ₂ 0.0000
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : efcf8aec
+  Intent  : agent-beta: add auth middleware
+  Thread  : thunderdome
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "tmp/thunderdome/db_layer.rs"
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  ✅ Syntax OK (precheck)    tmp/thunderdome/db_layer.rs
+Preparing worktree (detached HEAD e0018a0)
+HEAD is now at e0018a0 Nool Knot: 3392a4c1c4fed9819af66a9b89e7331a582e0ba2922bce1fedf9366de9b283a4
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+  [Reify] ⚠️  PATH RESOLUTION FAILURE
+Expected Cargo.toml in:
+• Real root:    /private/tmp/nool-enterprise-test/.
+• Scratchpad:   /private/tmp/nool-enterprise-test/.nool/tmp/reify/.
+Fix options:
+1. Run from your project directory (where Cargo.toml lives).
+2. Use --project-root <path> to specify the project location explicitly.
+3. Ensure cargo is installed: command -v cargo
+4. For a new repo, run 'nool init' from the project root.
+  ⚠️ Fast validation failed: Cannot locate project root for integrity check. Expected Cargo.toml in '/private/tmp/nool-enterprise-test/.'. Use --project-root <path> to specify the project location explicitly.
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/tmp/thunderdome/db_layer.rs"
+   Semantic field: new node (no structural history yet) — modularity λ₂ 0.0000
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : 7bbbd228
+  Intent  : agent-gamma: refactor database layer
+  Thread  : thunderdome
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+[PHASE 6] Solidifying proposals
+
+1. SEALING    [●●○]  Signing Knot [STAGED (DAG + Git)]...
+  ℹ 5 candidates are pending — this seals the OLDEST first (FIFO), not necessarily the one just staged. 4 still queued afterward; run `nool solidify` again for each, or `nool propose --abort` to drop a pending candidate.
+
+2. EXPORTING  [●●●]  Updating Git Mirror...
+✓ Decision Sealed: 60ccaec5
+  [Git] ✅ Committed to main (staged for push)
+
+[PHASE 7] Verification and DAG inspection
+🔍 Verifying structural invariants for entire active snapshot...
+  ✓ All 4 controls satisfied.
+Verification summary: 4 controls evaluated, 0 violations.
+60ccaec5 [2026-07-12 19:01:54 UTC]  Mutation  @ tmp/thunderdome/auth_middleware.rs
+           ↳ agent-beta: add auth middleware
+7134d4a2 [2026-07-12 19:01:54 UTC]  Mutation  @ tmp/thunderdome/rate_limiter.rs
+           ↳ agent-alpha: implement rate limiter
+
+============================================================
+ SCENARIO 01 COMPLETE — duration: 1s
+============================================================

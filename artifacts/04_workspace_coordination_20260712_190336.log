@@ -1,0 +1,207 @@
+============================================================
+ SCENARIO 04: Polyglot Workspace Coordination
+ Started:    2026-07-12T19:03:38Z
+============================================================
+
+[PHASE 1] Workspace tree status
+Workspace: /private/tmp/nool-enterprise-test  (4 projects across 2 levels)
+
+STRUCTURE
+  ▸ workspace (4 projects)
+    ● analytics          workspace/analytics          main@origin
+    ● auth-gateway       workspace/auth-gateway       main@origin
+    ● core-service       workspace/core-service       main@origin
+    ● identity           workspace/identity           main@origin
+Workspace: /private/tmp/nool-enterprise-test  (4 projects across 2 levels)
+
+STRUCTURE
+  ▸ workspace (4 projects)
+    ● analytics          workspace/analytics          main@origin
+    ● auth-gateway       workspace/auth-gateway       main@origin
+    ● core-service       workspace/core-service       main@origin
+    ● identity           workspace/identity           main@origin
+
+[PHASE 2] Decomposing workspace goals
+Goal: "analytics-dashboard-sprint"
+Decomposing across the tree:
+
+  ▣ analytics (workspace/analytics)
+      ◆ created task [c96c97a3]  "build-usage-dashboard"
+
+✓ actuated 1 task across 1 project.
+
+💾 persisted goal to /private/tmp/nool-enterprise-test/.nool/workspace/goals/analytics-dashboard-sprint.toml
+Goal: "auth-upgrade-sprint"
+Decomposing across the tree:
+
+  ▣ auth-gateway (workspace/auth-gateway)
+      ◆ created task [6666d362]  "upgrade-oauth-provider"
+
+✓ actuated 1 task across 1 project.
+
+💾 persisted goal to /private/tmp/nool-enterprise-test/.nool/workspace/goals/auth-upgrade-sprint.toml
+Goal: "core-refactor-sprint"
+Decomposing across the tree:
+
+  ▣ core-service (workspace/core-service)
+      ◆ created task [22edade0]  "refactor-api-handler"
+
+✓ actuated 1 task across 1 project.
+
+💾 persisted goal to /private/tmp/nool-enterprise-test/.nool/workspace/goals/core-refactor-sprint.toml
+
+[PHASE 3] Creating changes in child projects
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "workspace/analytics/dashboards/usage.sql"
+  ✅ Syntax OK (precheck)    workspace/analytics/dashboards/usage.sql
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/workspace/analytics/dashboards/usage.sql"
+   Semantic field: spectral impact 0.0000, heat reaches 3 node(s) — modularity λ₂ 0.0000
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : 23e212c7
+  Intent  : analytics: add usage dashboard query
+  Thread  : workspace-analytics
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "workspace/auth-gateway/config/oauth.toml"
+  ✅ Syntax OK (precheck)    workspace/auth-gateway/config/oauth.toml
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/workspace/auth-gateway/config/oauth.toml"
+   Semantic field: spectral impact 0.0000, heat reaches 3 node(s) — modularity λ₂ 0.0000
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : 0cd708b2
+  Intent  : auth-gateway: configure OIDC provider
+  Thread  : workspace-auth
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "workspace/core-service/src/handler.rs"
+  [Reify] 📦 Detected compiled language '.rs'. Enabling project-level reification...
+  ✅ Syntax OK (precheck)    workspace/core-service/src/handler.rs
+Preparing worktree (detached HEAD e0018a0)
+HEAD is now at e0018a0 Nool Knot: 3392a4c1c4fed9819af66a9b89e7331a582e0ba2922bce1fedf9366de9b283a4
+  [Reify] ✅ Hydrated 1 bundle file(s) to scratchpad
+  [Reify] ⚠️  PATH RESOLUTION FAILURE
+Expected Cargo.toml in:
+• Real root:    /private/tmp/nool-enterprise-test/.
+• Scratchpad:   /private/tmp/nool-enterprise-test/.nool/tmp/reify/.
+Fix options:
+1. Run from your project directory (where Cargo.toml lives).
+2. Use --project-root <path> to specify the project location explicitly.
+3. Ensure cargo is installed: command -v cargo
+4. For a new repo, run 'nool init' from the project root.
+  ⚠️ Fast validation failed: Cannot locate project root for integrity check. Expected Cargo.toml in '/private/tmp/nool-enterprise-test/.'. Use --project-root <path> to specify the project location explicitly.
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/workspace/core-service/src/handler.rs"
+   Semantic field: spectral impact 0.0000, heat reaches 3 node(s) — modularity λ₂ 0.0000
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : bdcc30f7
+  Intent  : core-service: refactor API handler
+  Thread  : workspace-core
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+1. PREPARING  [●●○]  Collecting changes...
+  [IO] Reading from working directory: "workspace/identity/config/provider.toml"
+  ✅ Syntax OK (precheck)    workspace/identity/config/provider.toml
+
+4. SIMULATING [●●●]  Merge simulation...
+
+🔭 Semantic signal
+   Blast radius: 1 node(s) affected (declared 1) — LOW [indicative]
+     · "/private/tmp/nool-enterprise-test/workspace/identity/config/provider.toml"
+   Semantic field: spectral impact 0.0000, heat reaches 3 node(s) — modularity λ₂ 0.0000
+   Relevant prior findings: none
+
+────────────────────────────────────────────────────────────
+PROPOSAL SUMMARY
+  ID      : ade0ba93
+  Intent  : identity: configure Keycloak provider
+  Thread  : workspace-identity
+  Mode    : Fast (Syntactic)
+────────────────────────────────────────────────────────────
+
+➤ Run 'nool solidify' to sign and seal this decision.
+
+[PHASE 4] Solidifying child project proposals
+
+1. SEALING    [●●○]  Signing Knot [STAGED (DAG + Git)]...
+
+2. EXPORTING  [●●●]  Updating Git Mirror...
+✓ Decision Sealed: 388ddefa
+  [Git] ✅ Committed to main (staged for push)
+
+1. SEALING    [●●○]  Signing Knot [STAGED (DAG + Git)]...
+
+2. EXPORTING  [●●●]  Updating Git Mirror...
+✓ Decision Sealed: 3dd7516e
+  [Git] ✅ Committed to main (staged for push)
+
+1. SEALING    [●●○]  Signing Knot [STAGED (DAG + Git)]...
+
+2. EXPORTING  [●●●]  Updating Git Mirror...
+✓ Decision Sealed: 4e5c2db1
+  [Git] ✅ Committed to main (staged for push)
+
+1. SEALING    [●●○]  Signing Knot [STAGED (DAG + Git)]...
+
+2. EXPORTING  [●●●]  Updating Git Mirror...
+✓ Decision Sealed: 3f8b76f9
+  [Git] ✅ Committed to main (staged for push)
+
+[PHASE 5] Aggregating via workspace pull
+Pulling 4 project(s) in dependency order:
+
+  ✗ analytics          fatal: 'origin' does not appear to be a git repository (origin)
+  ✗ auth-gateway       fatal: 'origin' does not appear to be a git repository (origin)
+  ✗ core-service       fatal: 'origin' does not appear to be a git repository (origin)
+  ✗ identity           fatal: 'origin' does not appear to be a git repository (origin)
+
+0 pulled · 4 failed · 4 projects
+Error: "4 project(s) failed to pull"
+[WARN] workspace pull had non-zero exit (expected: no remote)
+
+[PHASE 6] Final workspace state
+Workspace: /private/tmp/nool-enterprise-test  (4 projects across 2 levels)
+
+STRUCTURE
+  ▸ workspace (4 projects)
+    ● analytics          workspace/analytics          main@origin
+    ● auth-gateway       workspace/auth-gateway       main@origin
+    ● core-service       workspace/core-service       main@origin
+    ● identity           workspace/identity           main@origin
+
+============================================================
+ SCENARIO 04 COMPLETE — duration: 1s
+============================================================

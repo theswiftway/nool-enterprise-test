@@ -1,0 +1,5 @@
+name: reviewer-gamma
+executor: host
+model: host
+max_tokens: 2048
+temperature: 0.2

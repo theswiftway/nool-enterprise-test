@@ -1,0 +1,5 @@
+name: builder-alpha
+executor: host
+model: host
+max_tokens: 4096
+temperature: 0.3
