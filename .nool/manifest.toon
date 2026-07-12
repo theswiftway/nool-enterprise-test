@@ -1,4 +1,4 @@
-intent: fleet: implement rate limiter in Python
-knot_id: 0186aaf299588188ceb5c7af82bb7f616d79daf213acc8045723c9a472c6998e
-solidified_at: 1783882923569
-thread: fleet-ops
+intent: analytics: add usage dashboard query
+knot_id: 4b7b9a9f7fcb6ccc03eeee37133b8e684e9dc3aacbe8f109d74beee9f5bb63a0
+solidified_at: 1783882924343
+thread: workspace-analytics
