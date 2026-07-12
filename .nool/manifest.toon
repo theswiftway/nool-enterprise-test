@@ -1,4 +1,4 @@
-intent: agent-beta: add auth middleware
-knot_id: 60ccaec5b0db4509a0c515d4b28921c9a9ed2b9a300fced2b1f1245270e26cf2
-solidified_at: 1783883017365
-thread: thunderdome
+intent: update TLS certificate path
+knot_id: e4e4357eb77e86b5acf7a5c2d3fef7b636ddeca3e7cfbf29657e9e4d65884b31
+solidified_at: 1783883018084
+thread: governance-stress
