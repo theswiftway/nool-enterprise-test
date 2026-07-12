@@ -4,7 +4,9 @@ A comprehensive, multi-agent stress test battery for [Nool](https://nool.dev) �
 
 ## Test Results Summary
 
-All 4 scenarios executed against Nool v6.0.3+ on 2026-07-12:
+Two test batteries executed against Nool v6.0.3 on 2026-07-13:
+
+### Basic Suite — CLI Surface & Agent Workflow
 
 | Scenario | Result | Duration | Key Metric |
 |----------|--------|----------|------------|
@@ -13,7 +15,18 @@ All 4 scenarios executed against Nool v6.0.3+ on 2026-07-12:
 | **03 — Fleet Coordination** | ✅ PASS | 0s | Disjoint wave planning, 5/7 agent specs valid |
 | **04 — Polyglot Workspace Coordination** | ✅ PASS | 1s | 4 projects across 2 levels, 3 goals decomposed |
 
-**Aggregate**: 38 solidified Knots (basic) + 434 knots (enterprise suite), 1 canonical DAG head, 9 active threads, 0 invariant violations across basic suite, 2 violations across enterprise suite.
+### Enterprise Suite — Adversarial Stress Tests
+
+| Test | What It Proves | Result | Key Finding |
+|------|---------------|--------|-------------|
+| **02 — Adversarial Recovery** | Full DAG reconstruction after catastrophic `.nool/` deletion | ⚠️ 82.26% fidelity | 102/124 knots recovered. All 102 signatures valid. Verify passes. |
+| **03 — Convergence Torture** | N agents racing on overlapping NodeIDs produce identical DAG head | ✅ Deterministic | 3 rounds × 5 agents. FIFO queue ensures deterministic ordering. |
+| **04 — Signature Audit** | Ed25519 signature chain integrity, DAG linearity, mirror consistency | ⚠️ 1 violation | 64 knots at 5.57 kt/s. Doctor: RELEASABLE_WITH_WARNINGS. |
+| **05 — Long-Running Stability** | 300 ops simulating 24h continuous agent activity | ⚠️ 1 violation | 434 knots, 3.88 ops/s, 17.9MB growth, memory flat. |
+
+**Aggregate**: 536 knots across all tests, consistent linear DAG (1 head per test), 0 basic-suite violations, 2 enterprise-suite violations (invariant engine working correctly).
+
+**Combined Readiness Score**: **89.7%**
 
 Full report: [`reports/NOOL_ENTERPRISE_READINESS_REPORT.md`](reports/NOOL_ENTERPRISE_READINESS_REPORT.md)
 
@@ -143,18 +156,21 @@ nool-enterprise-test/
 
 ## Enterprise Readiness Score
 
-| Dimension | Score | Status |
-|-----------|-------|--------|
-| Multi-Agent Safety | 9/10 | ✅ |
-| Governance Enforcement | 10/10 | ✅ |
-| Fleet Orchestration | 8/10 | ⚠️ (consortium barrier) |
-| Workspace Coordination | 9/10 | ✅ |
-| Determinism | 10/10 | ✅ |
-| Recovery Readiness | 9/10 | ✅ |
-| Performance | 10/10 | ✅ |
-| Audit Trail | 10/10 | ✅ |
+| Dimension | Score | Evidence Source | Key Issue |
+|-----------|-------|----------------|-----------|
+| Multi-Agent Safety | 9/10 | Basic Suite | 16/16 conflicts detected |
+| Governance Enforcement | 10/10 | Basic Suite | Challenge-gated steering, compliant audit |
+| Fleet Orchestration | 8/10 | Basic Suite | Disjoint wave planning works; consortium barrier |
+| Workspace Coordination | 9/10 | Basic Suite | Fractal discovery, goal decomposition |
+| Determinism | 10/10 | Enterprise Test 03 | 3 rounds × 5 agents → same DAG head |
+| Recovery Readiness | 7/10 | Enterprise Test 02 | 82% fidelity from Bifrost — needs checkpoint pairing |
+| Performance | 8/10 | Enterprise Tests 04-05 | 3.88 ops/s sustained; throughput decays with DAG size |
+| Audit Trail | 9/10 | Enterprise Test 04 | All signatures valid; 2 violations detected (engine works) |
+| Invariant Enforcement | 8/10 | Enterprise Tests 04-05 | Violations caught consistently; root cause needed |
 
-**Overall: 93.75%**
+**Basic Suite Readiness**: **93.75%** — CLI surface and agent workflow production-quality  
+**Enterprise Suite Readiness**: **85.6%** — Real findings surfaced under adversarial conditions  
+**Combined Readiness**: **89.7%**
 
 ## Contact
 
